@@ -20,3 +20,20 @@ func (t JSONTime) MarshalJSON() ([]byte, error) {
 	date := fmt.Sprintf("%q", t.String())
 	return []byte(date), nil
 }
+
+// Now returns the current time as JSONTime
+func Now() JSONTime {
+	return JSONTime{
+		Time: time.Now(),
+	}
+}
+
+// NowPtr returns the current time as pointer to JSONTime
+func NowPtr() *JSONTime {
+	return Ptr(Now())
+}
+
+// Ptr is a convenience method that returns a pointer to the given JSONTime
+func Ptr(t JSONTime) *JSONTime {
+	return &t
+}

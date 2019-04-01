@@ -31,8 +31,7 @@ func getTestTime(t *testing.T) JSONTime {
 }
 
 func getTestTimePtr(t *testing.T) *JSONTime {
-	test := getTestTime(t)
-	return &test
+	return Ptr(getTestTime(t))
 }
 
 func TestJSONTime_MarshalJSON(t *testing.T) {
@@ -112,5 +111,30 @@ func TestJSONTime_MarshalJSON_Ptr(t *testing.T) {
 
 	if !bytes.Equal(b, jsonDate) {
 		t.Errorf("Expected to get %q, got %q", string(jsonDate), string(b))
+	}
+}
+
+func TestNow(t *testing.T) {
+	now := Now()
+
+	if now.Time.IsZero() {
+		t.Error("Expected time on now to be set, but is zero")
+	}
+}
+
+func TestNowPtr(t *testing.T) {
+	now := NowPtr()
+
+	if now.Time.IsZero() {
+		t.Error("Expected time on now to be set, but is zero")
+	}
+}
+
+func TestPtr(t *testing.T) {
+	test := Now()
+	now := Ptr(test)
+
+	if *now != test {
+		t.Error("Expected Ptr to return pointer to given object, but doesn't")
 	}
 }
