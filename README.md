@@ -1,6 +1,6 @@
-# go-json-time
+# go-jsontime
 
-A slim `time.Time` wrapper that handles pointer to time and formats the encoded time as [`RFC3339`](https://github.com/golang/go/blob/master/src/time/format.go#L82), which is easy to format and read from.
+A slim `time.Time` wrapper that handles pointer to time and formats the encoded time as [`RFC3339/ISO8601`](https://github.com/golang/go/blob/master/src/time/format.go#L82), which is easy to format and read from.
 
 ## Usage
 

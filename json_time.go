@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-// JSONTime handles parsing and formatting timestamps according the ISO8601 standard
+// JSONTime handles parsing and formatting timestamps according the RFC3339/ISO8601 standard
 type JSONTime struct {
 	time.Time
 }
